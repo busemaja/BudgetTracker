@@ -11,7 +11,17 @@ import java.util.ArrayList;
 public class SecureBudget {
   private ArrayList <Transaction> transactions = new ArrayList<>();
 
-    public SecureBudget() {
-    }
+  public SecureBudget() {
+  }
+
+  public void addTransaction() {}
+
+  public void removeTransaction() {}
+
+  public void getTotal() {}
+
+  public void getTotalByCategory() {}
+
+  public void getLargestTransaction() {}
 
 }
