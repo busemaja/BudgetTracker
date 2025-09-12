@@ -19,11 +19,17 @@ public class SecureBudget {
    * Constructor.
    */
   public SecureBudget() {}
-  
+
   /**
    * Adds a transaction.
    */
-  public void addTransaction() {}
+  public void addTransaction(double amount, String category, String description) {
+    // double amount; // positive or negative amount important to differentiate
+    // String category; // enums? where? need to reach both here and in class Transaction
+    // String description; // optional? how?
+    Transaction transaction = new Transaction(amount, category, description);
+
+  }
 
   /**
    * Removes a transaction.
