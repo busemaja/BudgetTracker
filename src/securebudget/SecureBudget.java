@@ -24,11 +24,10 @@ public class SecureBudget {
   /**
    * Adds a transaction.
    */
-  public void addTransaction(double amount, String category, String description) {
+  public void addTransaction(String transactionName, double amount, TransactionCategories category) {
     // double amount; // positive or negative amount important to differentiate
-    // String category; // enums? where? need to reach both here and in class Transaction
-    // String description; // optional? how?
-    Transaction transaction = new Transaction(amount, category, description);
+    // enum category; // need to reach both here and in class Transaction
+    Transaction transaction = new Transaction(transactionName, amount, category);
 
   }
 
