@@ -24,17 +24,18 @@ public class SecureBudget {
   /**
    * Adds a transaction.
    */
-  public void addTransaction(String transactionName, double amount, TransactionCategories category) {
+  public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
     // double amount; // positive or negative amount important to differentiate
     // enum category; // need to reach both here and in class Transaction
     Transaction transaction = new Transaction(transactionName, amount, category);
+    transactions.add(transaction);
 
   }
 
   /**
    * Removes a transaction.
    */
-  public void removeTransaction() {}
+  public void removeTransactionAndLogIt() {}
 
   /**
    * Returns the current total amount.
