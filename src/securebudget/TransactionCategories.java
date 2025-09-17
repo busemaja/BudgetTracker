@@ -1,0 +1,5 @@
+package securebudget;
+
+public enum TransactionCategories {
+  FOOD, HOUSING, UTILITIES, TRANSPORTATION, INSURANCE, HOUSEHOLD, PERSONAL, ENTERTAINMENT, SAVINGS
+}
