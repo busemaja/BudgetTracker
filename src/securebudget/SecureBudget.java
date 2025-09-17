@@ -39,16 +39,16 @@ public class SecureBudget {
   /**
    * Returns the current total amount.
    */
-  public void getTotal() {}
+  public void getCurrentTotal() {}
 
   /**
    * Returns the current total amount in a single category.
    */
-  public void getTotalByCategory() {}
+  public void getCurrentTotalByCategory() {}
 
   /**
    * Returns the largest listed transaction.
    */
-  public void getLargestTransaction() {}
+  public void getLargestListedTransaction() {}
 
 }
