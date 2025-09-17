@@ -14,7 +14,7 @@ public class SecureBudget {
    * An arraylist of all transactions made, both positive and negative.
    */
   private ArrayList <Transaction> transactions = new ArrayList<>();
-  private ArrayList <AuditLog> transactionLogs = new ArrayList<>();
+  private ArrayList <TransactionLog> transactionLogs = new ArrayList<>();
 
   /**
    * Constructor.
