@@ -11,19 +11,19 @@ import java.util.Date;
  */
 
 class Transaction {
+  private String name;
   private double amount;
   private Date date;
-  private String category;
-  private String description;
+  private TransactionCategories category;
 
   /**
    * Constructor.
    */
-  Transaction(double amount, String category, String description) {
+  Transaction(String name, double amount, TransactionCategories category) {
+    this.name = name;
     this.amount = amount;
     this.date = new Date();
     this.category = category;
-    this.description = description;
   }
   
   
