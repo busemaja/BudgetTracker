@@ -7,8 +7,8 @@ package securebudget;
  * @version 1.0.0
  */
 
-public class AuditLog {
-  AuditLog() {
+public class TransactionLog {
+  TransactionLog() {
     
   }
   
