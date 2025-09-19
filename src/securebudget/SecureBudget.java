@@ -10,20 +10,11 @@ import java.util.ArrayList;
  * @version 1.0.0
  */
 public class SecureBudget {
-  /**
-   * An arraylist of all transactions made, both positive and negative.
-   */
   private ArrayList <Transaction> transactions = new ArrayList<>();
   private ArrayList <TransactionLog> transactionLogs = new ArrayList<>();
 
-  /**
-   * Constructor.
-   */
   public SecureBudget() {}
 
-  /**
-   * Adds a transaction.
-   */
   public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
     // double amount; // positive or negative amount important to differentiate
     // enum category; // need to reach both here and in class Transaction
@@ -32,24 +23,12 @@ public class SecureBudget {
 
   }
 
-  /**
-   * Removes a transaction.
-   */
   public void removeTransactionAndLogIt() {}
 
-  /**
-   * Returns the current total amount.
-   */
   public void getCurrentTotal() {}
 
-  /**
-   * Returns the current total amount in a single category.
-   */
   public void getCurrentTotalByCategory() {}
 
-  /**
-   * Returns the largest listed transaction.
-   */
   public void getLargestListedTransaction() {}
 
 }

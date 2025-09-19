@@ -15,10 +15,7 @@ class Transaction {
   private double amount;
   private Date date;
   private TransactionCategories category;
-
-  /**
-   * Constructor.
-   */
+  
   Transaction(String name, double amount, TransactionCategories category) {
     this.name = name;
     this.amount = amount;
