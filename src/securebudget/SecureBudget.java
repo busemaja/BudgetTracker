@@ -16,11 +16,9 @@ public class SecureBudget {
   public SecureBudget() {}
 
   public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
-    // double amount; // positive or negative amount important to differentiate
-    // enum category; // need to reach both here and in class Transaction
     Transaction transaction = new Transaction(transactionName, amount, category);
     transactions.add(transaction);
-
+    logTransaction(transaction);
   }
 
   public void removeTransactionAndLogIt() {}
@@ -31,8 +29,13 @@ public class SecureBudget {
 
   public void getLargestListedTransaction() {}
 
-  private void logTransaction() {
-    
+  private void logTransaction(Transaction transaction) {
+    // TODO: convert the following values to strings and log per transaction:
+    // date and time
+    // category
+    // name
+    // amount
+    // transactionLogs.add(formattedTransaction?)
   }
 
 }
