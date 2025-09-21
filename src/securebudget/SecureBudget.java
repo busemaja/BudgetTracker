@@ -31,4 +31,8 @@ public class SecureBudget {
 
   public void getLargestListedTransaction() {}
 
+  private void logTransaction() {
+    
+  }
+
 }
