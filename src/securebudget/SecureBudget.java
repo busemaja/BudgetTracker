@@ -21,7 +21,11 @@ public class SecureBudget {
     logTransaction(transaction);
   }
 
-  public void removeTransactionAndLogIt() {}
+  public void removeTransactionAndLogIt(Transaction transaction) {
+    // TODO: add try/catch
+    transactions.remove(transaction);
+    logTransaction(transaction);
+  }
 
   public void getCurrentTotal() {}
 
