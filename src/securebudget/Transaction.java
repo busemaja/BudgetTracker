@@ -27,4 +27,7 @@ class Transaction {
     return this.amount;
   }
   
+  TransactionCategories getCategory() {
+    return this.category;
+  }
 }
