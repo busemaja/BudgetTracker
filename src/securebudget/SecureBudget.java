@@ -32,13 +32,12 @@ public class SecureBudget {
     }
   }
 
-  public void getCurrentTotal() {
+  public double getCurrentTotal() {
     double sum = 0;
     for (Transaction transaction : transactions) {
       sum += transaction.getAmount();
     }
-    // change to return statement
-    System.out.printf("The current total is: %.2f\n", sum);
+    return sum;
   }
 
   public double getCurrentTotalByCategory(TransactionCategories category) {
