@@ -16,15 +16,20 @@ public class SecureBudget {
   public SecureBudget() {}
 
   public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
+    // TODO: add validation of input?
     Transaction transaction = new Transaction(transactionName, amount, category);
     transactions.add(transaction);
     logTransaction(transaction);
   }
 
   public void removeTransactionAndLogIt(Transaction transaction) {
-    // TODO: add try/catch
-    transactions.remove(transaction);
-    logTransaction(transaction);
+    try {
+      if (transactions.remove(transaction)) {
+        logTransaction(transaction);
+      }
+    } catch (Exception e) {
+      System.out.println("Something went wrong, please try again.");
+    }
   }
 
   public void getCurrentTotal() {}
