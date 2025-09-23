@@ -37,10 +37,19 @@ public class SecureBudget {
     for (Transaction transaction : transactions) {
       sum += transaction.getAmount();
     }
+    // change to return statement
     System.out.printf("The current total is: %.2f\n", sum);
   }
 
-  public void getCurrentTotalByCategory() {}
+  public double getCurrentTotalByCategory(TransactionCategories category) {
+    double sum = 0;
+    for (Transaction transaction : transactions) {
+      if(transaction.getCategory() == category) {
+        sum += transaction.getAmount();
+      }
+    }
+    return sum;
+  }
 
   public void getLargestListedTransaction() {}
 
