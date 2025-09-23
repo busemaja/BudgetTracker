@@ -50,7 +50,12 @@ public class SecureBudget {
     return sum;
   }
 
-  public void getLargestListedTransaction() {}
+  public Transaction getLargestListedTransaction() {
+    ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
+    transactionsCopy.sort((transaction1, transaction2) -> 
+      Double.compare(transaction1.getAmount(), transaction2.getAmount()));
+    return transactionsCopy.get(transactionsCopy.size() - 1);
+  }
 
   private void logTransaction(Transaction transaction) {
     // TODO: convert the following values to strings and log per transaction:
