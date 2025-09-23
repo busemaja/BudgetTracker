@@ -23,5 +23,8 @@ class Transaction {
     this.category = category;
   }
   
+  double getAmount() {
+    return this.amount;
+  }
   
 }
