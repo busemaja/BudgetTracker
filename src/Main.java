@@ -1,4 +1,4 @@
-import securebudget.SecureBudget;
+import budgettracker.BudgetTracker;
 
 /**
  * The starting point of the application.
@@ -9,7 +9,7 @@ import securebudget.SecureBudget;
 
 public class Main {
   public static void main(String[] args) {
-    SecureBudget budgetManager = new SecureBudget();
+    BudgetTracker budgetManager = new BudgetTracker();
 
   }
 }

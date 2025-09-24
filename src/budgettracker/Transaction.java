@@ -1,4 +1,4 @@
-package securebudget;
+package budgettracker;
 
 import java.util.Date;
 

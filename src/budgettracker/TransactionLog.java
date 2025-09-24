@@ -1,4 +1,4 @@
-package securebudget;
+package budgettracker;
 
 /**
  * A class representing a single log post for a transaction.

@@ -1,4 +1,4 @@
-package securebudget;
+package budgettracker;
 
 import java.util.ArrayList;
 
@@ -9,11 +9,11 @@ import java.util.ArrayList;
  * @author Maria Jansson
  * @version 1.0.0
  */
-public class SecureBudget {
+public class BudgetTracker {
   private ArrayList <Transaction> transactions = new ArrayList<>();
   private ArrayList <TransactionLog> transactionLogs = new ArrayList<>();
 
-  public SecureBudget() {}
+  public BudgetTracker() {}
 
   public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
     // TODO: add validation of input?

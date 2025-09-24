@@ -1,4 +1,4 @@
-package securebudget;
+package budgettracker;
 
 public enum TransactionCategories {
   FOOD, HOUSING, UTILITIES, TRANSPORTATION, INSURANCE, HOUSEHOLD, PERSONAL, ENTERTAINMENT, SAVINGS
