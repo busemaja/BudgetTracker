@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  */
 public class BudgetTracker {
   private final ArrayList <Transaction> transactions = new ArrayList<>();
-  private final ArrayList <TransactionLog> transactionLogs = new ArrayList<>();
+  private final ArrayList <LogEntry> transactionLogs = new ArrayList<>();
 
   public BudgetTracker() {}
 
@@ -26,7 +26,7 @@ public class BudgetTracker {
     // TODO: add validation of input?
     Transaction transaction = new Transaction(transactionName, amount, category);
     transactions.add(transaction);
-    logTransaction(transaction);
+    logTransaction(transaction, LogEntry.Action.ADD);
   }
 
   /**
@@ -37,7 +37,7 @@ public class BudgetTracker {
     try {
       Transaction transaction = getTransaction(transactionId);
       if (transactions.remove(transaction)) {
-        logTransaction(transaction);
+        logTransaction(transaction, LogEntry.Action.REMOVE);
       }
     } catch (Exception e) {
       System.out.println("Something went wrong, please try again.");
@@ -90,14 +90,17 @@ public class BudgetTracker {
     }
     throw new NoSuchElementException("Transaction with ID " + transactionId + " not found");
   }
-  private void logTransaction(Transaction transaction) {
-    // TODO: convert the following values to strings(?) and log per transaction:
-    // timestamp
-    // type/action (add, remove)
-    // transaction ID
-    // transaction name
-    // amount
-    // transactionLogs.add(formattedTransaction?)
+  private void logTransaction(Transaction transaction, LogEntry.Action action) {
+    LogEntry log;
+    switch (action) {
+      case ADD:
+        log = new LogEntry(LogEntry.Action.ADD, transaction.getId(), transaction.getName(), transaction.getAmount());
+      break;
+      case REMOVE:
+        log = new LogEntry(LogEntry.Action.REMOVE, transaction.getId(), transaction.getName(), transaction.getAmount());
+      break;
+    }
+    transactionLogs.add(log);
   }
 
 }
