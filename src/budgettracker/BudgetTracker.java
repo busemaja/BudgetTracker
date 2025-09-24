@@ -99,6 +99,8 @@ public class BudgetTracker {
       case REMOVE:
         log = new LogEntry(LogEntry.Action.REMOVE, transaction.getId(), transaction.getName(), transaction.getAmount());
       break;
+      default:
+        throw new RuntimeException("Action not found.");
     }
     transactionLogs.add(log);
   }
