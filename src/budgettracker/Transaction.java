@@ -1,13 +1,12 @@
 package budgettracker;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * A class representing a single transaction.
  * Consists of Id, name (descriptive, ie "Coffe" or "Petrol"), amount, timestamp, category.
  * 
  * @author Maria Jansson
- * @version 1.0.0
  */
 
 class Transaction {
@@ -15,14 +14,14 @@ class Transaction {
   private int Id;
   private String name;
   private double amount;
-  private Date date;
+  private LocalDateTime timestamp;
   private TransactionCategories category;
   
   Transaction(String name, double amount, TransactionCategories category) {
     this.Id = idCounter++;
     this.name = name;
     this.amount = amount;
-    this.date = new Date();
+    this.timestamp = LocalDateTime.now();
     this.category = category;
   }
   
