@@ -26,6 +26,9 @@ class Transaction {
     this.category = category;
   }
   
+  String getName() {
+    return this.name;
+  }
   double getAmount() {
     return this.amount;
   }
