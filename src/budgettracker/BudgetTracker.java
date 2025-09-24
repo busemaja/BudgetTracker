@@ -1,6 +1,7 @@
 package budgettracker;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 /**
  * A lightweight Java module for secure transaction management and financial analysis.
@@ -57,6 +58,14 @@ public class BudgetTracker {
     return transactionsCopy.get(transactionsCopy.size() - 1);
   }
 
+  private Transaction getTransaction (int transactionId) {
+    for (Transaction transaction : transactions) {
+      if (transaction.getId() == transactionId) {
+        return transaction;
+      }
+    }
+    throw new NoSuchElementException("Transaction with ID " + transactionId + " not found");
+  }
   private void logTransaction(Transaction transaction) {
     // TODO: convert the following values to strings(?) and log per transaction:
     // timestamp
