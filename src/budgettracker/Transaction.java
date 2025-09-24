@@ -11,12 +11,15 @@ import java.util.Date;
  */
 
 class Transaction {
+  private static int idCounter = 1;
+  private int ID;
   private String name;
   private double amount;
   private Date date;
   private TransactionCategories category;
   
   Transaction(String name, double amount, TransactionCategories category) {
+    this.ID = idCounter++;
     this.name = name;
     this.amount = amount;
     this.date = new Date();
