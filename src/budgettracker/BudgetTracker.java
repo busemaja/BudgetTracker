@@ -76,6 +76,7 @@ public class BudgetTracker {
    * @return - the transaction object
    */
   public Transaction getLargestListedTransaction() {
+    // TODO: ändra så att den returnerar en sträng-representation istället.
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
     transactionsCopy.sort((transaction1, transaction2) -> 
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));

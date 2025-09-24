@@ -30,5 +30,7 @@ public class LogEntry {
     this.name = name;
     this.amount = amount;
   }
+
+  // TODO: lägg till toString()
   
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * A class representing a single transaction.
- * Consists of amount, date, category, and an optional description of the transaction.
+ * Consists of Id, name (descriptive, ie "Coffe" or "Petrol"), amount, timestamp, category.
  * 
  * @author Maria Jansson
  * @version 1.0.0
@@ -40,4 +40,6 @@ class Transaction {
   int getId() {
     return this.Id;
   }
+
+  // TODO: lägg till toString()
 }
