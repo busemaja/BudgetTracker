@@ -10,8 +10,8 @@ import java.util.ArrayList;
  * @version 1.0.0
  */
 public class BudgetTracker {
-  private ArrayList <Transaction> transactions = new ArrayList<>();
-  private ArrayList <TransactionLog> transactionLogs = new ArrayList<>();
+  private final ArrayList <Transaction> transactions = new ArrayList<>();
+  private final ArrayList <TransactionLog> transactionLogs = new ArrayList<>();
 
   public BudgetTracker() {}
 
@@ -58,10 +58,11 @@ public class BudgetTracker {
   }
 
   private void logTransaction(Transaction transaction) {
-    // TODO: convert the following values to strings and log per transaction:
-    // date and time
-    // category
-    // name
+    // TODO: convert the following values to strings(?) and log per transaction:
+    // timestamp
+    // type/action (add, remove)
+    // transaction ID
+    // transaction name
     // amount
     // transactionLogs.add(formattedTransaction?)
   }
