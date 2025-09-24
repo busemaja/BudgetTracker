@@ -23,8 +23,9 @@ public class BudgetTracker {
     logTransaction(transaction);
   }
 
-  public void removeTransactionAndLogIt(Transaction transaction) {
+  public void removeTransactionAndLogIt(int transactionId) {
     try {
+      Transaction transaction = getTransaction(transactionId);
       if (transactions.remove(transaction)) {
         logTransaction(transaction);
       }
@@ -58,7 +59,7 @@ public class BudgetTracker {
     return transactionsCopy.get(transactionsCopy.size() - 1);
   }
 
-  private Transaction getTransaction (int transactionId) {
+  private Transaction getTransaction(int transactionId) {
     for (Transaction transaction : transactions) {
       if (transaction.getId() == transactionId) {
         return transaction;
