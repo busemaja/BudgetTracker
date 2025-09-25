@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  */
 public class BudgetTracker {
   private final ArrayList <Transaction> transactions = new ArrayList<>();
-  private final ArrayList <LogEntry> transactionLogs = new ArrayList<>();
+  private final ArrayList <LogEntry> transactionLog = new ArrayList<>();
 
   public BudgetTracker() {}
 
@@ -76,7 +76,7 @@ public class BudgetTracker {
    * @return - the transaction object
    */
   public Transaction getLargestListedTransaction() {
-    // TODO: ändra så att den returnerar en sträng-representation istället.
+    // TODO: ändra så att den returnerar en sträng-representation istället. Byt namn på metoden?
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
     transactionsCopy.sort((transaction1, transaction2) -> 
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));
@@ -103,7 +103,7 @@ public class BudgetTracker {
       default:
         throw new RuntimeException("Action not found.");
     }
-    transactionLogs.add(log);
+    transactionLog.add(log);
   }
 
 }
