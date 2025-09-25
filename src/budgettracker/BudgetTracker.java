@@ -17,10 +17,10 @@ public class BudgetTracker {
   public BudgetTracker() {}
 
   /**
-   * Adds a transaction to the active list of transactions, and also adds it to the log.
+   * Adds a transaction to the list of transactions, and also adds it to the log.
    * @param transactionName - a descriptive name, for example "Coffee" or "Petrol".
    * @param amount - primitive type double
-   * @param category - found in the class TransactionCategories, change there if needed.
+   * @param category - enums found in the file TransactionCategories, change there if needed.
    */
   public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
     // TODO: add validation of input?
@@ -30,7 +30,7 @@ public class BudgetTracker {
   }
 
   /**
-   * Removes a transaction from the active list, and adds the removal to the log.
+   * Removes a transaction from the list of transactions, and also adds the removal to the log.
    * @param transactionId - the current transaction's unique ID
    */
   public void removeTransactionAndLogIt(int transactionId) {
@@ -45,7 +45,7 @@ public class BudgetTracker {
   }
 
   /**
-   * Returns the total sum of all transactions in the active list.
+   * Returns the total sum of all transactions in the list of transactions.
    * @return - the sum as a double
    */
   public double getCurrentTotal() {
@@ -57,8 +57,8 @@ public class BudgetTracker {
   }
 
   /**
-   * Returns the total sum of all transactions of a certain category in the active list.
-   * @param category - found in the class TransactionCategories
+   * Returns the total sum of all transactions in the list of transactions that belong to a certain category.
+   * @param category - found in the file TransactionCategories
    * @return - the sum as a double
    */
   public double getCurrentTotalByCategory(TransactionCategories category) {
@@ -72,7 +72,7 @@ public class BudgetTracker {
   }
 
   /**
-   * Returns the transaction whith the largest amount in the active list.
+   * Returns the transaction with the largest amount in the list of transactions.
    * @return - the transaction object
    */
   public Transaction getLargestListedTransaction() {
@@ -83,6 +83,7 @@ public class BudgetTracker {
     return transactionsCopy.get(transactionsCopy.size() - 1);
   }
 
+  // Returns the actual transaction object, so be careful what you do with it!
   private Transaction getTransaction(int transactionId) {
     for (Transaction transaction : transactions) {
       if (transaction.getId() == transactionId) {
@@ -91,6 +92,8 @@ public class BudgetTracker {
     }
     throw new NoSuchElementException("Transaction with ID " + transactionId + " not found");
   }
+
+  // Logs the transaction, currently only actions ADD and REMOVE are possible to log.
   private void logTransaction(Transaction transaction, LogEntry.Action action) {
     LogEntry log;
     switch (action) {
