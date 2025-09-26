@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * The file handler class for the module, currently only writes the transaction log to file.
+ * The file handler class for the module, can currently only write the transaction log to file.
  * 
  * @author Maria Jansson
  */
@@ -23,7 +23,7 @@ class FileHandler {
   }
 
   /**
-   * Please remember to set the file path (using setFilePath()) before trying to save to file, otherwise it will not work.
+   * Please remember to set the file path (using setFilePath()) before trying to save to file, otherwise it will throw an exception.
    * @param transactionLog - ArrayList of strings
    */
   public void saveLogToFile(ArrayList<String> transactionLog) {
