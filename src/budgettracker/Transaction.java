@@ -1,6 +1,7 @@
 package budgettracker;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * A class representing a single transaction.
@@ -25,6 +26,12 @@ class Transaction {
     this.category = category;
   }
   
+  String getTimestamp() {
+    DateTimeFormatter wantedDateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    String formattedDateTime = this.timestamp.format(wantedDateTimeFormat);
+    return formattedDateTime;
+  }
+
   String getName() {
     return this.name;
   }
@@ -40,5 +47,8 @@ class Transaction {
     return this.Id;
   }
 
-  // TODO: lägg till toString()
+  // Returns format "yyyy-MM-dd Name of transaction Amount with 2 decimals kr" with tabs between the values.
+  public String toFormattedString() {
+    return this.getTimestamp() + "\t" + this.getName() + "\t" + String.format("%.2f", this.getAmount()) + "kr";
+  }
 }

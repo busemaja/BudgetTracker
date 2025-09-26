@@ -81,7 +81,7 @@ public class BudgetTracker {
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));
     
     Transaction transaction = transactionsCopy.get(transactionsCopy.size() - 1);
-    String transactionInfo = transaction.toString();
+    String transactionInfo = transaction.toFormattedString();
     
     return transactionInfo;
   }
