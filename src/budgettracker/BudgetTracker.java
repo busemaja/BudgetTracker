@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 public class BudgetTracker {
   private final ArrayList <Transaction> transactions = new ArrayList<>();
   private final ArrayList <LogEntry> transactionLog = new ArrayList<>();
+  private final FileHandler fileHandler = new FileHandler();
 
   public BudgetTracker() {}
 
@@ -103,6 +104,14 @@ public class BudgetTracker {
     return transactionLogCopy;
   }
 
+  /**
+   * Saves all the logged transaction actions, with complete transaction info, as a text file.
+   * @param filepath - Example file path: "src/main/resources/transactionlog.txt"
+   */
+  public void saveLogToFile(String filepath) {
+    fileHandler.setFilePath(filepath);
+    fileHandler.saveLogToFile(getTransactionLog());
+  }
   // Returns the actual transaction object, so be careful what you do with it!
   private Transaction getTransaction(int transactionId) {
     for (Transaction transaction : transactions) {
