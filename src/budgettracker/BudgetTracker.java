@@ -106,10 +106,10 @@ public class BudgetTracker {
     LogEntry log;
     switch (action) {
       case ADD:
-        log = new LogEntry(LogEntry.Action.ADD, transaction.getId(), transaction.getName(), transaction.getAmount());
+        log = new LogEntry(LogEntry.Action.ADD, transaction.getCategory(), transaction.getId(), transaction.getName(), transaction.getAmount());
       break;
       case REMOVE:
-        log = new LogEntry(LogEntry.Action.REMOVE, transaction.getId(), transaction.getName(), transaction.getAmount());
+        log = new LogEntry(LogEntry.Action.REMOVE, transaction.getCategory(), transaction.getId(), transaction.getName(), transaction.getAmount());
       break;
       default:
         throw new RuntimeException("Action not found.");
