@@ -79,7 +79,10 @@ public class BudgetTracker {
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
     transactionsCopy.sort((transaction1, transaction2) -> 
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));
-    String transactionInfo = toString(transactionsCopy.get(transactionsCopy.size() - 1));
+    
+    Transaction transaction = transactionsCopy.get(transactionsCopy.size() - 1);
+    String transactionInfo = transaction.toString();
+    
     return transactionInfo;
   }
 
