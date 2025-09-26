@@ -28,8 +28,8 @@ class Transaction {
   
   String getTimestamp() {
     DateTimeFormatter wantedDateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    String formattedDateTime = this.timestamp.format(wantedDateTimeFormat);
-    return formattedDateTime;
+    String formattedTimestamp = this.timestamp.format(wantedDateTimeFormat);
+    return formattedTimestamp;
   }
 
   String getName() {
