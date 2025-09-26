@@ -72,15 +72,15 @@ public class BudgetTracker {
   }
 
   /**
-   * Returns the transaction with the largest amount in the list of transactions.
-   * @return - the transaction object
+   * Returns the info of the transaction with the largest amount in the list of transactions.
+   * @return - the info as a String
    */
-  public Transaction getLargestListedTransaction() {
-    // TODO: ändra så att den returnerar en sträng-representation istället. Byt namn på metoden?
+  public String getInfoOnLargestListedTransaction() {
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
     transactionsCopy.sort((transaction1, transaction2) -> 
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));
-    return transactionsCopy.get(transactionsCopy.size() - 1);
+    String transactionInfo = toString(transactionsCopy.get(transactionsCopy.size() - 1));
+    return transactionInfo;
   }
 
   // Returns the actual transaction object, so be careful what you do with it!
