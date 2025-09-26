@@ -36,7 +36,11 @@ public class BudgetTracker {
   public void removeTransactionAndLogIt(int transactionId) {
     try {
       Transaction transaction = getTransaction(transactionId);
-      Transaction transactionCopyForLog = new Transaction(transaction);
+      Transaction transactionCopyForLog = new Transaction(
+        transaction.getName(),
+        transaction.getAmount(),
+        transaction.getCategory()
+      );
       if (transactions.remove(transaction)) {
         logTransaction(transactionCopyForLog, LogEntry.Action.REMOVE);
       }
