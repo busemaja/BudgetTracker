@@ -41,8 +41,7 @@ class LogEntry {
       + formattedTimestamp + "\t" 
       + this.category + "\t" 
       + this.name + "\t" 
-      + String.format("%.2f", this.amount) 
-      + "kr";
+      + String.format("%.2f", this.amount) + "kr";
   }
   
 }
