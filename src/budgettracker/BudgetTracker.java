@@ -101,7 +101,7 @@ public class BudgetTracker {
     throw new NoSuchElementException("Transaction with ID " + transactionId + " not found");
   }
 
-  // Logs the transaction, currently only actions ADD and REMOVE are possible to log.
+  // Logs the transaction, available actions found in class LogEntry.
   private void logTransaction(Transaction transaction, LogEntry.Action action) {
     LogEntry log;
     switch (action) {
