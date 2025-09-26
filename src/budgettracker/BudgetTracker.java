@@ -91,6 +91,18 @@ public class BudgetTracker {
     return transactionInfo;
   }
 
+  /**
+   * Returns an arraylist of all logged transaction events as strings.
+   * @return 
+   */
+  public ArrayList<String> getTransactionLog() {
+    ArrayList <String> transactionLogCopy = new ArrayList<>();
+    for (LogEntry entry : transactionLog) {
+      transactionLogCopy.add(entry.toFormattedString());
+    }
+    return transactionLogCopy;
+  }
+
   // Returns the actual transaction object, so be careful what you do with it!
   private Transaction getTransaction(int transactionId) {
     for (Transaction transaction : transactions) {
