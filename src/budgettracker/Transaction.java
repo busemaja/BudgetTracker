@@ -12,11 +12,11 @@ import java.time.format.DateTimeFormatter;
 
 class Transaction {
   private static int idCounter = 1;
-  private int Id;
-  private String name;
-  private double amount;
-  private LocalDateTime timestamp;
-  private TransactionCategories category;
+  private final int Id;
+  private final String name;
+  private final double amount;
+  private final LocalDateTime timestamp;
+  private final TransactionCategories category;
   
   Transaction(String name, double amount, TransactionCategories category) {
     this.Id = idCounter++;
