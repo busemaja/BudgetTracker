@@ -36,8 +36,9 @@ public class BudgetTracker {
   public void removeTransactionAndLogIt(int transactionId) {
     try {
       Transaction transaction = getTransaction(transactionId);
+      Transaction transactionCopyForLog = new Transaction(transaction);
       if (transactions.remove(transaction)) {
-        logTransaction(transaction, LogEntry.Action.REMOVE);
+        logTransaction(transactionCopyForLog, LogEntry.Action.REMOVE);
       }
     } catch (Exception e) {
       System.out.println("Something went wrong, please try again.");
@@ -73,7 +74,7 @@ public class BudgetTracker {
 
   /**
    * Returns the info of the transaction with the largest amount in the list of transactions.
-   * @return - the info as a String
+   * @return - the info as a String, formatted as: "yyyy-MM-dd CATEGORY Name of transaction Amount with 2 decimals kr" with tabs between the fields.
    */
   public String getInfoOnLargestListedTransaction() {
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
