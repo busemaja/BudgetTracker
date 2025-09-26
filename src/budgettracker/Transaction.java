@@ -35,6 +35,7 @@ class Transaction {
   String getName() {
     return this.name;
   }
+
   double getAmount() {
     return this.amount;
   }
@@ -48,7 +49,7 @@ class Transaction {
   }
 
   // Example of return string (values separeted by tab): 25	2025-09-25 15:26	FOOD	Fika	125,00kr
-  public String toFormattedString() {
+  String toFormattedString() {
     return this.getId() + "\t" 
       + this.getTimestamp() + "\t" 
       + this.getCategory() + "\t" 
