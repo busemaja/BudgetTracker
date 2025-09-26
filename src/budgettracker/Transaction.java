@@ -47,8 +47,12 @@ class Transaction {
     return this.Id;
   }
 
-  // Returns format "yyyy-MM-dd CATEGORY Name of transaction Amount with 2 decimals kr" with tabs between the fields.
+  // Example of return string (values separeted by tab): 25	2025-09-25 15:26	FOOD	Fika	125,00kr
   public String toFormattedString() {
-    return this.getTimestamp() + "\t" + this.getCategory() + "\t" + this.getName() + "\t" + String.format("%.2f", this.getAmount()) + "kr";
+    return this.getId() + "\t" 
+      + this.getTimestamp() + "\t" 
+      + this.getCategory() + "\t" 
+      + this.getName() + "\t" 
+      + String.format("%.2f", this.getAmount()) + "kr";
   }
 }
