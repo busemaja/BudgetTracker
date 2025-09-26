@@ -33,7 +33,7 @@ class LogEntry {
   }
 
     // Example of return string (values separeted by tab): ADD	25	2025-09-25 15:26	FOOD	Fika	125,00kr
-  public String toFormattedString() {
+  String toFormattedString() {
     DateTimeFormatter wantedDateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     String formattedTimestamp = this.timestamp.format(wantedDateTimeFormat);
     return this.action + "\t" 
