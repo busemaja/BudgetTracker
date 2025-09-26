@@ -7,15 +7,29 @@ import java.util.List;
 
 /**
  * The file handler class for the module, currently only writes the transaction log to file.
- * Please remember to set the file path (using setFilePath()) before trying to save to file. Example file path: "src/main/resources/transactionlog.data"
  * 
  * @author Maria Jansson
  */
 
 class FileHandler {
-  private static String FILE_NAME;
+  private String filePath;
+
+/**
+ * Must be set before calling saveLogToFile()
+ * @param filePath - Example file path: "src/main/resources/transactionlog.data"
+ */
+  void setFilePath(String filePath) {
+    this.filePath = filePath;
+  }
+
+  /**
+   * Please remember to set the file path (using setFilePath()) before trying to save to file, otherwise it will not work.
+   * @param transactionLog - ArrayList of strings
+   */
   public void saveLogToFile(List<LogEntry> transactionLog) {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+      writer.write("Action\tID\tTime stamp\tCategory\tName\tAmount");
+      writer.newLine();
       for (LogEntry logEntry : transactionLog) {
         writer.write(logEntry.toFormattedString());
         writer.newLine();
