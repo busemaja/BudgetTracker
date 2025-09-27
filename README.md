@@ -3,28 +3,72 @@ A lightweight Java module for secure transaction management and financial analys
 
 ## Description
 BudgetTracker is a Java module that allows you to manage financial transactions in a simple and reusable way. 
-It was originally developed as part of a software quality course, but can be reused for personal or professional projects.
+It was originally developed as part of a software quality course, but can be freely reused for personal or professional projects.
+
+## Quick Start Example
+```java
+import budgettracker.*;
+
+public class Main {
+  public static void main(String[] args) {
+    BudgetTracker tracker = new BudgetTracker();
+    int id = tracker.addTransactionAndLogIt("Coffee", 45.50, TransactionCategories.FOOD);
+    tracker.removeTransactionAndLogIt(id);
+    System.out.println(tracker.getCurrentTotal());
+    System.out.println(tracker.getInfoOnLargestTransaction());
+  }
+}
+```
 
 ## Functionality and features
-- Add and remove transactions with amount, date, category, and name.
-- Compute totals, largest transaction, and summaries by category.
-- Audit log of all transactions.
-- Simple and reusable API suitable for integration into other applications.
+
+BudgetTracker provides:
+- Addition and removal of transactions
+- Categorization of transactions (e.g., FOOD, TRANSPORTATION, HOUSING)
+- Calculation of totals and percentages by category
+- Audit logging of all transaction events
+- Easy integration into other Java applications
+
+## Public API Methods
+- `addTransactionAndLogIt(String name, double amount, TransactionCategories category)`: Add a transaction and log it.
+- `removeTransactionAndLogIt(int transactionId)`: Remove a transaction and log the removal.
+- `getCurrentTotal()`: Get the total sum of all transactions.
+- `getCurrentTotalByCategory(TransactionCategories category)`: Get the total for a specific category.
+- `getInfoOnLargestTransaction()`: Get info on the largest transaction.
+- `getPercentagesByCategory()`: Get percentage breakdown by category.
+- `saveLogToFile(String filepath)`: Save the transaction log to a file.
 
 ## Project structure
-- /src        → Main Java source code (the BudgetTracker module)
-- README.md   → This file
-- .gitignore  → Ignored files (compiled classes, IDE files, temp files)
-- LICENSE     → Information about the license covering this project
+
+The main files and folders are:
+- `src/` — Java source code, including the BudgetTracker module and supporting classes
+- `README.md` — Project documentation
+- `.gitignore` — Git ignore rules for build artifacts and IDE files
+- `LICENSE` — License information
+
+## Requirements
+- Java 11 or higher
 
 ## Installation and usage
-- Include the module in your Java project.
-- Use the public methods to add, remove, and analyze transactions.
+
+1. Clone or download the repository.
+2. Add the `src/budgettracker` folder to your Java project.
+3. Use the public API methods to manage and analyze transactions.
+4. See the Quick Start Example above for basic usage.
 
 ## Module information
-- All transactions are tracked in an internal audit log, recording every addition or removal. 
-  This allows you to review all changes made to the data.
-- All features are implemented using standard Java classes; no external libraries are required.
+BudgetTracker maintains an internal audit log of every transaction added or removed. This log records:
+- The action performed (add/remove)
+- Transaction details (id, category, name, amount, timestamp)  
+
+You can review the log to see a complete history of changes, and export it to a file for further analysis or record-keeping.
+
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
+
+## Author
+Maria Jansson  
+Contact: [maria.elvira.jansson@gmail.com]
 
 ## License 
 This project is open for personal and professional use. 
