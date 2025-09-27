@@ -93,6 +93,27 @@ public class BudgetTracker {
   }
 
   /**
+   * @return - a String array of how large a percentage value each category is.
+   */
+  public String[] getPercentagesByCategory() {
+    String[] percentages = new String[TransactionCategories.values().length];
+    double sumOfAllCategories = getCurrentTotal();
+    TransactionCategories[] categories = TransactionCategories.values();
+
+    // Loop the categories, calculate their respective percentage, create String with category name and percentage, add to String array
+    for (int i = 0; i < categories.length; i++) {
+      TransactionCategories category = categories[i];
+      double categorySum = getCurrentTotalByCategory(category);
+      double categoryPercentage = (categorySum / sumOfAllCategories) * 100;
+      String categoryPercentageString = String.format("%.2f", categoryPercentage) + "%";
+      String result = category.toString().concat(" ").concat(categoryPercentageString);
+      percentages[i] = result;
+    }
+
+    return percentages;
+  }
+
+  /**
    * Returns an arraylist of all logged transaction events as strings.
    * @return 
    */
