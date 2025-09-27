@@ -53,5 +53,8 @@ public class Main {
       System.out.println(entry);
     }
 
+    String filename = "src/data/transactionlog.txt";
+    budgetManager.saveLogToFile(filename);
+
   }
 }
