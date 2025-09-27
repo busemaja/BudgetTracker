@@ -1,5 +1,6 @@
 import budgettracker.BudgetTracker;
 import budgettracker.TransactionCategories;
+import java.util.ArrayList;
 
 /**
  * The starting point of the application.
@@ -35,11 +36,22 @@ public class Main {
     System.out.println(budgetManager.getCurrentTotal());
     System.out.println(budgetManager.getCurrentTotalByCategory(category3));
     System.out.println(budgetManager.getInfoOnLargestTransaction());
-    System.out.println(budgetManager.getTransactionLog());
+    
+    ArrayList<String> log1 = budgetManager.getTransactionLog();
+    System.out.println("Log 1:");
+    System.out.println("Action\tID\tTimestamp\tCategory\tName\tAmount");
+    for (String entry : log1) {
+      System.out.println(entry);
+    }
 
     budgetManager.removeTransactionAndLogIt(id4);
-
-    System.out.println(budgetManager.getTransactionLog());
+    
+    ArrayList<String> log2 = budgetManager.getTransactionLog();
+    System.out.println("Log 2:");
+    System.out.println("Action\tID\tTimestamp\tCategory\tName\tAmount");
+    for (String entry : log2) {
+      System.out.println(entry);
+    }
 
   }
 }
