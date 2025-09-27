@@ -132,6 +132,7 @@ public class BudgetTracker {
     fileHandler.setFilePath(filepath);
     fileHandler.saveLogToFile(getTransactionLog());
   }
+  
   // Returns the actual transaction object, so be careful what you do with it!
   private Transaction getTransaction(int transactionId) {
     for (Transaction transaction : transactions) {
