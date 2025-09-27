@@ -106,7 +106,7 @@ public class BudgetTracker {
       double categorySum = getCurrentTotalByCategory(category);
       double categoryPercentage = (categorySum / sumOfAllCategories) * 100;
       String categoryPercentageString = String.format("%.2f", categoryPercentage) + "%";
-      String result = category.toString().concat(" ").concat(categoryPercentageString);
+      String result = category + " " + categoryPercentageString;
       percentages[i] = result;
     }
 
@@ -114,8 +114,7 @@ public class BudgetTracker {
   }
 
   /**
-   * Returns an arraylist of all logged transaction events as strings.
-   * @return 
+   * @return - an arraylist of all logged transaction events as strings.
    */
   public ArrayList<String> getTransactionLog() {
     ArrayList <String> transactionLogCopy = new ArrayList<>();
