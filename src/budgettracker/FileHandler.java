@@ -16,7 +16,7 @@ class FileHandler {
 
 /**
  * Must be set before calling saveLogToFile()
- * @param filePath - Example file path: "src/main/resources/transactionlog.txt"
+ * @param filePath - Include the file name and format! Example file path: "src/main/resources/transactionlog.txt"
  */
   void setFilePath(String filePath) {
     this.filePath = filePath;

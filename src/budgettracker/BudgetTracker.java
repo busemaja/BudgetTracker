@@ -23,9 +23,19 @@ public class BudgetTracker {
    * @param amount - primitive type double
    * @param category - enums found in the file TransactionCategories, change there if needed.
    * @return - the id of the transaction created
+   * @throws IllegalArgumentException - if transactionName is null/empty, amount is NaN/infinite, or category is null
    */
   public int addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
-    // TODO: add validation of input?
+    if (transactionName == null || transactionName.isEmpty()) {
+        throw new IllegalArgumentException("Transaction name cannot be null or empty.");
+    }
+    if (Double.isNaN(amount) || Double.isInfinite(amount)) {
+        throw new IllegalArgumentException("Amount must be a valid number.");
+    }
+    if (category == null) {
+        throw new IllegalArgumentException("Category cannot be null.");
+    }
+
     Transaction transaction = new Transaction(transactionName, amount, category);
     transactions.add(transaction);
     logTransaction(transaction, LogEntry.Action.ADD);
@@ -35,8 +45,12 @@ public class BudgetTracker {
   /**
    * Removes a transaction from the list of transactions, and also adds the removal to the log.
    * @param transactionId - the current transaction's unique ID
+   * @throws IllegalArgumentException - if transactionId is less than 1
    */
   public void removeTransactionAndLogIt(int transactionId) {
+    if (transactionId < 1) {
+      throw new IllegalArgumentException("ID must be a number above 0.");
+    }
     try {
       Transaction transaction = getTransaction(transactionId);
       Transaction transactionCopyForLog = new Transaction(
@@ -131,14 +145,19 @@ public class BudgetTracker {
 
   /**
    * Saves all the logged transaction actions, with complete transaction info, as a text file.
-   * @param filepath - Example file path: "src/main/resources/transactionlog.txt"
+   * @param filepath - Include the file name and format! Example file path: "src/main/resources/transactionlog.txt"
+   * @throws IllegalArgumentException - if filepath is null or empty
    */
   public void saveLogToFile(String filepath) {
+    if (filepath == null || filepath.isBlank()) {
+        throw new IllegalArgumentException("File path must not be null or empty.");
+    }
     fileHandler.setFilePath(filepath);
     fileHandler.saveLogToFile(getTransactionLog());
   }
   
   // Returns the actual transaction object, so be careful what you do with it!
+  // Throws NoSuchElementException if there is no ID match
   private Transaction getTransaction(int transactionId) {
     for (Transaction transaction : transactions) {
       if (transaction.getId() == transactionId) {
@@ -149,6 +168,7 @@ public class BudgetTracker {
   }
 
   // Logs the transaction, available actions found in class LogEntry.
+  // Throws RuntimeException if action is not found.
   private void logTransaction(Transaction transaction, LogEntry.Action action) {
     LogEntry log;
     switch (action) {
