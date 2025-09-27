@@ -41,3 +41,6 @@ Sen kan jag tycka att det visserligen är bekvämt med små metoder, men personl
 - Ändrat metodnamn för att bättre spegla exakt vad som händer – tex från addTransaction() till addTransactionAndLogIt().
 - Ändra från print av summa till return double i getCurrentTotal() för att minska antalet saker metoden gör.
 - Lånade filehandler metod från tidigare projekt (men strippade den en del och gjorde om lite)
+
+Ett tidigt use case diagram(som jag glömde uppdatera):  
+<img src="use_case_diagram.png" alt="use case diagram" width="600px">
