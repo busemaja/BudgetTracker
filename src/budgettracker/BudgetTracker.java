@@ -47,8 +47,8 @@ public class BudgetTracker {
       if (transactions.remove(transaction)) {
         logTransaction(transactionCopyForLog, LogEntry.Action.REMOVE);
       }
-    } catch (Exception e) {
-      System.out.println("Something went wrong, please try again.");
+    } catch (NoSuchElementException e) {
+      System.out.println("There is no transaction with that ID.");
     }
   }
 
@@ -100,6 +100,9 @@ public class BudgetTracker {
   public String[] getPercentagesByCategory() {
     String[] percentages = new String[TransactionCategories.values().length];
     double sumOfAllCategories = getCurrentTotal();
+    if (sumOfAllCategories == 0) {
+      return percentages;
+    }
     TransactionCategories[] categories = TransactionCategories.values();
 
     // Loop the categories, calculate their respective percentage, create String with category name and percentage, add to String array
