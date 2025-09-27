@@ -79,9 +79,9 @@ public class BudgetTracker {
 
   /**
    * Returns the info of the transaction with the largest amount in the list of transactions.
-   * @return - the info as a String, formatted as: "yyyy-MM-dd CATEGORY Name of transaction Amount with 2 decimals kr" with tabs between the fields.
+   * @return - the info as a String, formatted as: "yyyy-MM-dd HH:mm, CATEGORY, Name of transaction, Amount(with 2 decimals)kr" with tabs between the fields instead of commas.
    */
-  public String getInfoOnLargestListedTransaction() {
+  public String getInfoOnLargestTransaction() {
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
     transactionsCopy.sort((transaction1, transaction2) -> 
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));
