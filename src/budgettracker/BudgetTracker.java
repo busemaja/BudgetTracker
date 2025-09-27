@@ -22,12 +22,14 @@ public class BudgetTracker {
    * @param transactionName - a descriptive name, for example "Coffee" or "Petrol".
    * @param amount - primitive type double
    * @param category - enums found in the file TransactionCategories, change there if needed.
+   * @return - the id of the transaction created
    */
-  public void addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
+  public int addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
     // TODO: add validation of input?
     Transaction transaction = new Transaction(transactionName, amount, category);
     transactions.add(transaction);
     logTransaction(transaction, LogEntry.Action.ADD);
+    return transaction.getId();
   }
 
   /**
