@@ -36,6 +36,7 @@ BudgetTracker provides:
 - `getCurrentTotalByCategory(TransactionCategories category)`: Get the total for a specific category.
 - `getInfoOnLargestTransaction()`: Get info on the largest transaction.
 - `getPercentagesByCategory()`: Get percentage breakdown by category.
+- `getTransactionLog()`: Get a copy of the full transaction log as an ArrayList.
 - `saveLogToFile(String filepath)`: Save the transaction log to a file.
 
 ## Project structure
