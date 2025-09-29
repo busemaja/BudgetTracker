@@ -26,7 +26,7 @@ class FileHandler {
    * Please remember to set the file path (using setFilePath()) before trying to save to file, otherwise it will throw an exception.
    * @param transactionLog - ArrayList of strings
    */
-  public void saveLogToFile(ArrayList<String> transactionLog) {
+  void saveLogToFile(ArrayList<String> transactionLog) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
       writer.write("Action\tID\tTime stamp\tCategory\tName\tAmount");
       writer.newLine();
