@@ -4,6 +4,7 @@ A lightweight Java module for secure transaction management and financial analys
 ## Description
 BudgetTracker is a Java module that allows you to manage financial transactions in a simple and reusable way. 
 It was originally developed as part of a software quality course, but can be freely reused for personal or professional projects.
+>Please note that this module uses double instead of BigDecimal, which means that number size is limited and calculation accuracy is not optimal.
 
 ## Quick Start Example
 ```java
