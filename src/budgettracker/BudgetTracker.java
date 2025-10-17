@@ -27,6 +27,14 @@ import java.util.NoSuchElementException;
    * @throws IllegalArgumentException - if transactionName is null/empty, amount is NaN/infinite, or category is null
    */
   public int addTransactionAndLogIt(String transactionName, double amount, TransactionCategories category) {
+    validateTransactionInput(transactionName, amount, category);
+    Transaction transaction = new Transaction(transactionName, amount, category);
+    transactions.add(transaction);
+    logTransaction(transaction, LogEntry.Action.ADD);
+    return transaction.getId();
+  }
+
+  private void validateTransactionInput(String transactionName, double amount, TransactionCategories category) {
     if (transactionName == null || transactionName.isEmpty()) {
         throw new IllegalArgumentException("Transaction name cannot be null or empty.");
     }
@@ -36,11 +44,6 @@ import java.util.NoSuchElementException;
     if (category == null) {
         throw new IllegalArgumentException("Category cannot be null.");
     }
-
-    Transaction transaction = new Transaction(transactionName, amount, category);
-    transactions.add(transaction);
-    logTransaction(transaction, LogEntry.Action.ADD);
-    return transaction.getId();
   }
 
   /**
