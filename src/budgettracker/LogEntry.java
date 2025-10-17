@@ -1,13 +1,13 @@
-package budgettracker;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 /**
  * A class representing a single log post for a transaction.
  * 
  * @author Maria Jansson
  */
+
+package budgettracker;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class LogEntry {
   private final LocalDateTime timestamp;

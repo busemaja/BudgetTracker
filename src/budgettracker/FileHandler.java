@@ -1,15 +1,15 @@
+/**
+ * The file handler class for the module, can currently only write the transaction log to file.
+ * 
+ * @author Maria Jansson
+ */
+
 package budgettracker;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-/**
- * The file handler class for the module, can currently only write the transaction log to file.
- * 
- * @author Maria Jansson
- */
 
 class FileHandler {
   private String filePath;

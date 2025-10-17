@@ -1,14 +1,14 @@
-package budgettracker;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 /**
  * A class representing a single transaction.
  * Consists of Id, name (descriptive, ie "Coffe" or "Petrol"), amount, timestamp, category.
  * 
  * @author Maria Jansson
  */
+
+package budgettracker;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class Transaction {
   private static int idCounter = 1;

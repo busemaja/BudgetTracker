@@ -1,8 +1,3 @@
-package budgettracker;
-
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-
 /**
  * A lightweight Java module for secure transaction management and financial analysis.
  * Think of it as a digital form of the classic account book, where you list all of your transactions, but with a few more functions making it easier and more fun to keep track and analyze!
@@ -10,7 +5,13 @@ import java.util.NoSuchElementException;
  * @author Maria Jansson
  * @version 1.0.0
  */
-public class BudgetTracker {
+
+package budgettracker;
+
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
+ public class BudgetTracker {
   private final ArrayList <Transaction> transactions = new ArrayList<>();
   private final ArrayList <LogEntry> transactionLog = new ArrayList<>();
   private final FileHandler fileHandler = new FileHandler();
