@@ -50,23 +50,20 @@ import java.util.NoSuchElementException;
    * Removes a transaction from the list of transactions, and also adds the removal to the log.
    * @param transactionId - the current transaction's unique ID
    * @throws IllegalArgumentException - if transactionId is less than 1
+   * @throws NoSuchElementException - if no transaction with that ID exists
    */
   public void removeTransactionAndLogIt(int transactionId) {
     if (transactionId < 1) {
       throw new IllegalArgumentException("ID must be a number above 0.");
     }
-    try {
-      Transaction transaction = getTransaction(transactionId);
-      Transaction transactionCopyForLog = new Transaction(
-        transaction.getName(),
-        transaction.getAmount(),
-        transaction.getCategory()
-      );
-      if (transactions.remove(transaction)) {
-        logTransaction(transactionCopyForLog, LogEntry.Action.REMOVE);
-      }
-    } catch (NoSuchElementException e) {
-      System.out.println("There is no transaction with that ID.");
+    Transaction transaction = getTransaction(transactionId);
+    Transaction transactionCopyForLog = new Transaction(
+      transaction.getName(),
+      transaction.getAmount(),
+      transaction.getCategory()
+    );
+    if (transactions.remove(transaction)) {
+      logTransaction(transactionCopyForLog, LogEntry.Action.REMOVE);
     }
   }
 
