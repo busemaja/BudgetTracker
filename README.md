@@ -38,7 +38,15 @@ BudgetTracker provides:
 - `getInfoOnLargestTransaction()`: Get info on the largest transaction.
 - `getPercentagesByCategory()`: Get percentage breakdown by category.
 - `getTransactionLog()`: Get a copy of the full transaction log as an ArrayList.
-- `saveLogToFile(String filepath)`: Save the transaction log to a file.
+- `saveLogToFile(String directoryPath) throws IOException`: Save the transaction log as a file named `transactionlog_YYYY-MM-DD.txt` in the provided directory.
+
+### Exceptions
+- `addTransactionAndLogIt(...)` throws `IllegalArgumentException` if name is null/empty, amount is `NaN`/infinite/`0`, or category is null.
+- `removeTransactionAndLogIt(int id)` throws `IllegalArgumentException` if `id < 1`, `NoSuchElementException` if no transaction with that id exists.
+- `getInfoOnLargestTransaction()` throws `NoSuchElementException` if there are no transactions.
+- `saveLogToFile(String directoryPath)` throws `IllegalArgumentException` if the path is null/blank, and `IOException` if writing fails.
+
+Note: Amounts in formatted strings are displayed with two decimals and a trailing `kr` (e.g., `125.00kr`).
 
 ## Project structure
 
@@ -63,7 +71,18 @@ BudgetTracker maintains an internal audit log of every transaction added or remo
 - The action performed (add/remove)
 - Transaction details (id, category, name, amount, timestamp)  
 
-You can review the log to see a complete history of changes, and export it to a file for further analysis or record-keeping.
+You can review the log to see a complete history of changes, and export it to a file for further analysis or record-keeping. The exported file is tab-separated with a header row and saved as `transactionlog_YYYY-MM-DD.txt` in the directory you provide.
+
+Known limitation: When logging a removal, the current implementation uses a new `Transaction` instance for the log entry, which can result in a new ID being shown in the log for the removed transaction.
+
+## Change Log
+
+- 2.0.0 — 2025-10-20
+  - Breaking: `saveLogToFile` now accepts a directory path and throws `IOException`; filename is generated as `transactionlog_YYYY-MM-DD.txt`.
+  - Breaking: Stricter input validation across methods; `IllegalArgumentException` and `NoSuchElementException` are thrown for invalid inputs and missing items.
+  - Improvement: All formatted outputs now display amounts with two decimals and `kr` suffix.
+  - Docs: Updated README to reflect new API and exception behavior.
+  - Known issue: Removal log may show a new transaction ID (audit fidelity bug to be fixed).
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your improvements.

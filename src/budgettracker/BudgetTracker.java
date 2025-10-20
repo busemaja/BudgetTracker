@@ -3,7 +3,7 @@
  * Think of it as a digital form of the classic account book, where you list all of your transactions, but with a few more functions making it easier and more fun to keep track and analyze!
  * 
  * @author Maria Jansson
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 package budgettracker;
