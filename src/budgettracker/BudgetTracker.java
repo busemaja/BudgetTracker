@@ -98,8 +98,12 @@ import java.util.NoSuchElementException;
   /**
    * Returns the info of the transaction with the largest amount in the list of transactions.
    * @return - the info as a String, formatted as: "yyyy-MM-dd HH:mm, CATEGORY, Name of transaction, Amount(with 2 decimals)kr" with tabs between the fields instead of commas.
+   * @throws - NoSuchElementException if the transaction list is empty.
    */
   public String getInfoOnLargestTransaction() {
+    if (transactions.isEmpty()) {
+      throw new NoSuchElementException("No transactions listed.");
+    }
     ArrayList<Transaction> transactionsCopy = new ArrayList<>(transactions);
     transactionsCopy.sort((transaction1, transaction2) -> 
       Double.compare(transaction1.getAmount(), transaction2.getAmount()));
