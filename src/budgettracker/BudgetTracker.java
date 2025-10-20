@@ -49,6 +49,7 @@ import java.util.NoSuchElementException;
 
   /**
    * Removes a transaction from the list of transactions, and also adds the removal to the log.
+   * @note - currently contains a bug which makes the removed transaction get a new unique ID in the log. See GitHub issue #2 for details.
    * @param transactionId - the current transaction's unique ID
    * @throws IllegalArgumentException - if transactionId is less than 1
    * @throws NoSuchElementException - if no transaction with that ID exists
@@ -58,6 +59,7 @@ import java.util.NoSuchElementException;
       throw new IllegalArgumentException("ID must be a number above 0.");
     }
     Transaction transaction = getTransaction(transactionId);
+    // TODO: change so that it doesn't make a new transaction object (causes faulty ID in log)
     Transaction transactionCopyForLog = new Transaction(
       transaction.getName(),
       transaction.getAmount(),
