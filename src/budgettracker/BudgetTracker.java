@@ -8,6 +8,7 @@
 
 package budgettracker;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -146,15 +147,15 @@ import java.util.NoSuchElementException;
 
   /**
    * Saves all the logged transaction actions, with complete transaction info, as a text file.
-   * @param filepath - Include the file name and format! Example file path: "src/main/resources/transactionlog.txt"
-   * @throws IllegalArgumentException - if filepath is null or empty
+   * @param directoryPath - Example directory path: "src/main/resources"
+   * @throws IllegalArgumentException - if directoryPath is null or empty
+   * @throws IOException - if file cannot be written
    */
-  public void saveLogToFile(String filepath) {
-    if (filepath == null || filepath.isBlank()) {
-        throw new IllegalArgumentException("File path must not be null or empty.");
+  public void saveLogToFile(String directoryPath) throws IOException {
+    if (directoryPath == null || directoryPath.isBlank()) {
+        throw new IllegalArgumentException("Directory path must not be null or empty.");
     }
-    fileHandler.setFilePath(filepath);
-    fileHandler.saveLogToFile(getTransactionLog());
+    fileHandler.saveLogToFile(getTransactionLog(), directoryPath);
   }
   
   // Returns the actual transaction object, so be careful what you do with it!

@@ -9,33 +9,25 @@ package budgettracker;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 class FileHandler {
-  private String filePath;
-
-/**
- * Must be set before calling saveLogToFile()
- * @param filePath - Include the file name and format! Example file path: "src/main/resources/transactionlog.txt"
- */
-  void setFilePath(String filePath) {
-    this.filePath = filePath;
-  }
 
   /**
-   * Please remember to set the file path (using setFilePath()) before trying to save to file, otherwise it will throw an exception.
    * @param transactionLog - ArrayList of strings
    */
-  void saveLogToFile(ArrayList<String> transactionLog) {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+  void saveLogToFile(ArrayList<String> transactionLog, String directoryPath) throws IOException{
+    LocalDate date = LocalDate.now();
+    Path filePath = Path.of(directoryPath, "transactionlog_" + date + ".txt");
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toString()))) {
       writer.write("Action\tID\tTime stamp\tCategory\tName\tAmount");
       writer.newLine();
       for (String logEntry : transactionLog) {
         writer.write(logEntry);
         writer.newLine();
       }
-    } catch (IOException e) {
-      System.err.println("Error writing to file: " + e.getMessage());
     }
   }
 }
