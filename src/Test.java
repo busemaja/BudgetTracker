@@ -7,6 +7,8 @@
 import budgettracker.BudgetTracker;
 import budgettracker.TransactionCategories;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
 public class Test {
   public static void main(String[] args) {
     BudgetTracker tracker = new BudgetTracker();
@@ -29,7 +31,7 @@ public class Test {
 
     double expectedTotal = 23822.18;
     double actualTotal = tracker.getCurrentTotal();
-    System.out.println("Current total (Expect: 23822.18): " + String.format("%.2f", actualTotal));
+    System.out.println("Current total (Expect: 23822,18): " + String.format("%.2f", actualTotal));
     assert Math.abs(actualTotal - expectedTotal) < 0.01 : "Total mismatch!";
 
     // Test 2: Remove transaction
@@ -37,17 +39,22 @@ public class Test {
     tracker.removeTransactionAndLogIt(id4);
     double expectedTotalAfterRemoval = 18318.51;
     actualTotal = tracker.getCurrentTotal();
-    System.out.println("Current total after removal (Expect: 18318.51): " + String.format("%.2f", actualTotal));
+    System.out.println("Current total after removal (Expect: 18318,51): " + String.format("%.2f", actualTotal));
     assert Math.abs(actualTotal - expectedTotalAfterRemoval) < 0.01 : "Total after removal mismatch!";
 
     // Negative test: remove non-existing transaction
-    System.out.println("\nTest 2b: Remove non-existing transaction (Expect warning)");
-    tracker.removeTransactionAndLogIt(99999); // Should print a warning
+    System.out.println("\nTest 2b: Remove non-existing transaction (Expect NoSuchElementException)");
+    try {
+      tracker.removeTransactionAndLogIt(99999);
+      System.out.println("Unexpected: no exception thrown");
+    } catch (NoSuchElementException e) {
+      System.out.println("Caught expected NoSuchElementException: " + e.getMessage());
+    }
 
     // Test 3: Get total by category
     System.out.println("\nTest 3: Get total by category");
-    System.out.println("FOOD (Expect: 625.50): " + String.format("%.2f", tracker.getCurrentTotalByCategory(TransactionCategories.FOOD)));
-    System.out.println("HOUSING (Expect: 7503.67): " + String.format("%.2f", tracker.getCurrentTotalByCategory(TransactionCategories.HOUSING)));
+    System.out.println("FOOD (Expect: 625,50): " + String.format("%.2f", tracker.getCurrentTotalByCategory(TransactionCategories.FOOD)));
+    System.out.println("HOUSING (Expect: 7503,67): " + String.format("%.2f", tracker.getCurrentTotalByCategory(TransactionCategories.HOUSING)));
 
     // Test 4: Get info on largest transaction
     System.out.println("\nTest 4: Get info on largest transaction");
@@ -81,6 +88,7 @@ public class Test {
     String validDir = "src/data/";
     try {
       tracker.saveLogToFile(validDir);
+      
       System.out.println("Log saved to directory: " + validDir);
     } catch (Exception e) {
       System.out.println("Unexpected exception when saving log to valid directory: " + e);
