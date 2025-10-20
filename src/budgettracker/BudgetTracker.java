@@ -38,8 +38,8 @@ import java.util.NoSuchElementException;
     if (transactionName == null || transactionName.isEmpty()) {
         throw new IllegalArgumentException("Transaction name cannot be null or empty.");
     }
-    if (Double.isNaN(amount) || Double.isInfinite(amount)) {
-        throw new IllegalArgumentException("Amount must be a valid number.");
+    if (Double.isNaN(amount) || Double.isInfinite(amount) || amount == 0) {
+        throw new IllegalArgumentException("Amount must be a valid number, and cannot be 0.");
     }
     if (category == null) {
         throw new IllegalArgumentException("Category cannot be null.");
