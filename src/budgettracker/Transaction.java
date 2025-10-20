@@ -12,14 +12,14 @@ import java.time.format.DateTimeFormatter;
 
 class Transaction {
   private static int idCounter = 1;
-  private final int Id;
+  private final int id;
   private final String name;
   private final double amount;
   private final LocalDateTime timestamp;
   private final TransactionCategories category;
   
   Transaction(String name, double amount, TransactionCategories category) {
-    this.Id = idCounter++;
+    this.id = idCounter++;
     this.name = name;
     this.amount = amount;
     this.timestamp = LocalDateTime.now();
@@ -45,7 +45,7 @@ class Transaction {
   }
 
   int getId() {
-    return this.Id;
+    return this.id;
   }
 
   // Example of return string (values separeted by tab): 25	2025-09-25 15:26	FOOD	Fika	125,00kr
